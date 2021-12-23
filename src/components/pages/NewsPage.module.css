@@ -1,0 +1,25 @@
+.newsImg {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  .test{
+      display: block;
+
+  }
+
+  .center {
+    margin: auto;
+    width: 70%;
+    text-align: center;
+    /* border: 3px solid wheat; */
+    padding: 10px;
+  }
+
+  .storeurl{
+      color: white;
+      font-size: 50px;
+  }
+ 
