@@ -1,27 +1,44 @@
 // import CartButton from '../Cart/CartButton';
-import classes from './MainHeader.module.css';
-import SearchBar from '../Restaurant/SearchBar';
-import { useSelector } from 'react-redux';
+import SearchBar from "../Restaurant/SearchBar";
+import { useSelector } from "react-redux";
+import Styled from "styled-components";
+const HeaderStyled = Styled.header`
+  width: 100%;
+  height: 5rem;
+  padding: 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #252424;
+h1 {
+  color: white;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}`;
 
 const MainHeader = (props) => {
   const reservation = useSelector((state) => state.reservation);
-  const searchHandler = (name) =>{
+  console.log("main header", reservation);
+  const searchHandler = (name) => {
     props.onSearch(name);
-  }
+  };
   return (
-    <header className={classes.header}>
+    <HeaderStyled>
       <h1>myK-store</h1>
       <nav>
         <ul>
           {/* <li>{cart.reserveList}</li> */}
           {/* <li>News</li> */}
           <li>
-          <SearchBar onSearch={searchHandler}/>
+            <SearchBar onSearch={searchHandler} />
             {/* <CartButton /> */}
           </li>
         </ul>
       </nav>
-    </header>
+    </HeaderStyled>
   );
 };
 
