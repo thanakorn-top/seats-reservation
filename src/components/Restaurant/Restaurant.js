@@ -1,54 +1,69 @@
 import Card from "../UI/Card";
-import classes from "./Restaurant.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { reservActions } from "../../store/reservation-slice";
 import { uiAction } from "../../store/ui-slice";
+import Styled from "styled-components";
+
+const DivItemStyled = Styled.div`
+h3{
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+img {
+  width: 200px;
+}
+`;
+const DivDescStyled = Styled.div`
+display: flex;
+justify-content: flex-start;
+p {
+  color: #3a3a3a;
+}`
+;
+
+const DivActionsStyled = Styled.div`
+display: flex;
+justify-content: flex-end;
+`;
 
 const Restaurant = (props) => {
-  const { title, price, description, id, img } = props;
+  const { title, description, id, img } = props;
   const dispatch = useDispatch();
 
-  const addToCartHandler = () => {
-    // dispatch(cartActions.addItemTocart({ id, title, price }));
-  };
+  // const addToCartHandler = () => {
+  //   // dispatch(cartActions.addItemTocart({ id, title, price }));
+  // };
 
   const reservation = () => {
-
-    dispatch(reservActions.addReservationSeats({ id, title, price }));
+    dispatch(reservActions.addReservationSeats({ id, title }));
     dispatch(uiAction.toggleCartVisible());
   };
   return (
-    <div className={classes.item}>
+    <DivItemStyled>
       <Card>
         <header>
-          <img src={img} alt="1234" className={classes.newsImg}></img>
-          <h3>{title}</h3>
-          <div className={classes.price}>${price.toFixed(2)}</div>
+          <img src={img} alt="img"></img>
+          <img src={img} alt="img"></img>
+          <img src={img} alt="img"></img>
+        
+          {/* <div className={classes.price}>${price.toFixed(2)}</div> */}
         </header>
         <div>
-          <div className={classes.desc}>
+        <h3>{title}</h3>
+          <DivDescStyled >
             <p>{description}</p>
-          </div>
-          <div className={classes.actions}>
+          </DivDescStyled>
+          <DivActionsStyled >
             <button onClick={reservation}>Add to Cart</button>
-          </div>
+          </DivActionsStyled>
         </div>
       </Card>
-    </div>
-    // <li className={classes.item}>
-    //   <Card>
-    //     <header>
-    //       <img src={img} alt="1234" className={classes.newsImg}></img>
-    //       <h3>{title}</h3>
-    //       <div className={classes.price}>${price.toFixed(2)}</div>
-    //     </header>
-
-    //     <div >
-    //       <div className={classes.desc}> <p>{description}</p></div>
-    //       <div className={classes.actions}> <button onClick={addToCartHandler}>Add to Cart</button></div>
-    //     </div>
-    //   </Card>
-    // </li>
+    </DivItemStyled>
   );
 };
 
