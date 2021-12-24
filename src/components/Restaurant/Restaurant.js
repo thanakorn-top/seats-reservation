@@ -40,8 +40,8 @@ const Restaurant = (props) => {
   // };
 
   const reservation = () => {
-    dispatch(reservActions.addReservationSeats({ id, title }));
-    dispatch(uiAction.toggleCartVisible());
+    dispatch(reservActions.selectRestaurant({ id, title }));
+    dispatch(uiAction.toggleReservationFormVisible());
   };
   return (
     <DivItemStyled>

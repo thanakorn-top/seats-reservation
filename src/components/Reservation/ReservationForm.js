@@ -6,7 +6,6 @@ import { RESERVATION_TIMES } from "../../constants/Restaurant";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styled from "styled-components";
-
 const Styles = styled.div`
 //  padding: 20px;
 
@@ -59,9 +58,6 @@ const ReservationForm = (props) => {
     const resterauntName = title;
     const enteredName = nameInputRef.current.value;
     const enteredNumberOfCustomer = numberOfCustomerRef.current.value;
-    //     const datetest = Moment(bookingDate.toString()).format('DD-MM-YYYY');
-    //     const unixTimeZero = Date.parse('01 Jan 1970 00:00:00 GMT');
-    // const javaScriptRelease = Date.parse('04 Dec 1995 00:12:00 GMT');
 
     const formatted_date =
       bookingDate.getDate() +
@@ -80,7 +76,8 @@ const ReservationForm = (props) => {
     };
 
     dispatch(reservActions.addReservationList(bookingData));
-    dispatch(uiAction.toggleCartVisible());
+    dispatch(uiAction.toggleReservationFormVisible());
+    
   };
 
   const timeslotChangeHandler = (event) => {

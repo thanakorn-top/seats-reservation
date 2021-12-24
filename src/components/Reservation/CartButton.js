@@ -7,7 +7,7 @@ const CartButton = (props) => {
 const cartQuantity = useSelector(state => state.reservation.totalQuantity)
 
   const cartToggle = () => {
-    dispatch(uiAction.toggleCartVisible());
+    dispatch(uiAction.toggleReservationFormVisible());
   };
 
   return (

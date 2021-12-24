@@ -2,10 +2,23 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const uiSlice = createSlice({
   name: "ui",
-  initialState: { cartIsVisible: false, notification: null },
+  initialState: {
+    reservationIsVisible: false,
+    toggleText: "Show Reserve List",
+    notification: null,
+    reserveListIsVisible: false,
+  },
   reducers: {
-    toggleCartVisible(state) {
-      state.cartIsVisible = !state.cartIsVisible;
+    toggleReservationFormVisible(state) {
+      state.reservationIsVisible = !state.reservationIsVisible;
+    },
+    toggleReserveListIsVisible(state) {
+      state.reserveListIsVisible = !state.reserveListIsVisible;
+      if (state.reserveListIsVisible) {
+        state.toggleText = "Show Restaurant";
+      } else {
+        state.toggleText = "Show Reserve List";
+      }
     },
     showNotification(state, action) {
       state.notification = {

@@ -1,5 +1,5 @@
 import { uiAction } from "./ui-slice";
-import { cartActions } from "./reservation-slice";
+import { reservActions } from "./reservation-slice";
 
 export const fetchCartData = () => {
   return async (dispatch) => {
@@ -16,11 +16,9 @@ export const fetchCartData = () => {
     };
 
     try {
-      // const cartData = await fetchData();
-      // dispatch(cartActions.replaceCart({
-      //     items: cartData.items || [],
-      //     totalQuantity: cartData.totalQuantity
-      // }));
+      const cartData = await fetchData();
+      console.log("cartData",cartData)
+      dispatch(reservActions.replaceReservationList(cartData));
     } catch (error) {
       dispatch(
         uiAction.showNotification({
@@ -49,10 +47,11 @@ export const sendCartData = (cart) => {
         "https://react-http-ac112-default-rtdb.asia-southeast1.firebasedatabase.app/cart.json",
         {
           method: "PUT",
-          body: JSON.stringify({
-            items: cart.items,
-            totalQuantity: cart.totalQuantity,
-          }),
+          // body: JSON.stringify({
+          //   items: cart.items,
+          //   totalQuantity: cart.totalQuantity,
+          // }),
+          body: JSON.stringify(cart),
         }
       );
       if (!response.ok) {
@@ -60,7 +59,7 @@ export const sendCartData = (cart) => {
       }
     };
     try {
-      // await sendRequest();
+      await sendRequest();
 
       dispatch(
         uiAction.showNotification({

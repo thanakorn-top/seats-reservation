@@ -1,19 +1,24 @@
-import Cart from "../Reservation/Reservation"
+import Cart from "../Reservation/Reservation";
 import Layout from "../Layout/Layout";
 import RestaurantList from "../Restaurant/RestaurantList";
 // import SearchBar from "../Restaurant/SearchBar";
 import { useSelector, useDispatch } from "react-redux";
-import { Fragment, useEffect,useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Notification from "../UI/Notification";
 import { sendCartData, fetchCartData } from "../../store/reservation-actions";
+import ReserveList from "../Reservation/ReserveList";
 let isInitial = true;
 
 const MainPage = () => {
   const dispatch = useDispatch();
-  const cartIsVisible = useSelector((state) => state.ui.cartIsVisible);
+  const reservationIsVisible = useSelector((state) => state.ui.reservationIsVisible);
+  const reserveListIsVisible = useSelector(
+    (state) => state.ui.reserveListIsVisible
+  );
   const reservation = useSelector((state) => state.reservation);
   const notification = useSelector((state) => state.ui.notification);
-  const [restName,setRestName] = useState("") ; 
+  const [restName, setRestName] = useState("");
+
   useEffect(() => {
     dispatch(fetchCartData());
   }, [dispatch]);
@@ -24,15 +29,14 @@ const MainPage = () => {
       return;
     }
     if (reservation.changed) {
-      dispatch(sendCartData(reservation));
+      dispatch(sendCartData(reservation.reserveList));
     }
   }, [reservation, dispatch]);
 
-
-  const searchHandler = (name) =>{
+  const searchHandler = (name) => {
     console.log(name);
     setRestName(name);
-  }
+  };
   return (
     <Fragment>
       {notification && (
@@ -43,9 +47,9 @@ const MainPage = () => {
         />
       )}
       <Layout onSearch={searchHandler}>
-        {cartIsVisible && <Cart />}
-        <RestaurantList name={restName}/>
-        
+        {reservationIsVisible && <Cart />}
+        {!reserveListIsVisible && <RestaurantList name={restName} />}
+        {reserveListIsVisible && <ReserveList />}
       </Layout>
     </Fragment>
   );

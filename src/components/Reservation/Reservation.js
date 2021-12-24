@@ -35,7 +35,7 @@ const Reservation = (props) => {
   };
 
   const cartToggle = () => {
-    dispatch(uiAction.toggleCartVisible());
+    dispatch(uiAction.toggleReservationFormVisible());
   };
 
   return (
