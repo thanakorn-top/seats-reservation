@@ -6,7 +6,7 @@ function App() {
   return (
     <Switch>
       <Route path="/" exact>
-        <Redirect to="/news" />
+        <Redirect to="/home" />
       </Route>
       <Route path="/news">
         <NewsPage />
