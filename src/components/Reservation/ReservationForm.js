@@ -30,7 +30,7 @@ const Styles = styled.div`
         width: 100%;
     }
     input[type="text"]:disabled {
-        color: white;
+        color: black;
     }
     label {
         color: white;

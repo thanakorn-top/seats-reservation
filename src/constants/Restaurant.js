@@ -31,7 +31,7 @@ export const DUMMY_RESTAURANT = [
         description:
             "ชื่อเต็มว่า “เจ๊โอว ข้าวต้มเป็ด” เปิดมานมนาน 3 ชั่วอายุคน กว่าครึ่งศตวรรษ",
         images: [r1img1, r1img2, r1img3],
-        seats: 1,
+        seats: 20,
     },
     {
         id: "p2",
@@ -47,7 +47,7 @@ export const DUMMY_RESTAURANT = [
         description:
             "โจ๊กหมูทอง ผู้ไม่เคยหลับใหล เปิดให้ลูกค้าตลอดเวลาไม่มีวันหยุด สุดพิเศษกับหมูเด้งสูตรล้ำค่าดั่งทองคำ ถ้าได้ลองอาจมีซ้ำ",
         images: [r3img1, r3img2, r3img3],
-        seats: 7,
+        seats: 15,
     },
     {
         id: "p4",
@@ -55,6 +55,6 @@ export const DUMMY_RESTAURANT = [
         description:
             "ผัดไทยอายุเก่าแก่ สูตรแบบฉบับพิเศษไม่เหมือนใคร น้ำส้ม แท้ คั้นสด ทิพย์สมัย ผัดไทย เส้นจันท์มันกุ้ง กุ้งสดตัวใหญ่",
         images: [r4img1, r4img2, r4img3],
-        seats: 5,
+        seats: 12,
     },
 ]
