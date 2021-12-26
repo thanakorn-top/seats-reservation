@@ -4,7 +4,7 @@
 
 This web application can reserve 4 Restaurant.
 
-# Feature
+# Features
 - Can reserve any date and time from 4 Restaurant.
 - Can search by name.
 - Seats have a limit.
