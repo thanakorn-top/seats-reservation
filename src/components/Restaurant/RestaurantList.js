@@ -24,15 +24,7 @@ const RestaurantList = (props) => {
     <SectionStyled>
       <div>
         {filter_products.map((product) => (
-          <Restaurant
-            id={product.id}
-            key={product.id}
-            title={product.title}
-            description={product.description}
-            img={product.img}
-            img2={product.img2}
-            img3={product.img3}
-          />
+          <Restaurant {...product} key={product.id} />
         ))}
         {filter_products.length === 0 && <h2>Not Found</h2>}
       </div>
