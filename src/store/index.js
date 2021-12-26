@@ -1,9 +1,9 @@
-import { configureStore } from "@reduxjs/toolkit";
-import uiSlice from "./ui-slice";
-import reservationSlice from "./reservation-slice";
+import { configureStore } from "@reduxjs/toolkit"
+import uiSlice from "./ui-slice"
+import reservationSlice from "./reservation-slice"
 
 const store = configureStore({
-  reducer: { ui: uiSlice, reservation: reservationSlice },
-});
+    reducer: { ui: uiSlice, reservation: reservationSlice },
+})
 
-export default store;
+export default store

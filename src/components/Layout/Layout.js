@@ -1,16 +1,15 @@
-import { Fragment } from "react";
-import MainHeader from "./MainHeader";
+import MainHeader from "./MainHeader"
 
 const Layout = (props) => {
-  const searchHandler = (name) => {
-    props.onSearch(name);
-  };
-  return (
-    <Fragment>
-      <MainHeader onSearch={searchHandler} />
-      <main>{props.children}</main>
-    </Fragment>
-  );
-};
+    const searchHandler = (name) => {
+        props.onSearch(name)
+    }
+    return (
+        <>
+            <MainHeader onSearch={searchHandler} />
+            <main>{props.children}</main>
+        </>
+    )
+}
 
-export default Layout;
+export default Layout

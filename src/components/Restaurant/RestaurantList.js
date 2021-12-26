@@ -1,6 +1,6 @@
-import Restaurant from "./Restaurant";
-import { DUMMY_RESTAURANT } from "../../constants/Restaurant";
-import Styled from "styled-components";
+import Restaurant from "./Restaurant"
+import { DUMMY_RESTAURANT } from "../../constants/Restaurant"
+import Styled from "styled-components"
 
 const SectionStyled = Styled.section`
 h2 {
@@ -14,22 +14,22 @@ div {
   margin: 0;
   padding: 0;
 }
-`;
+`
 
 const RestaurantList = (props) => {
-  const filter_products = DUMMY_RESTAURANT.filter((item) =>
-    item.title.toUpperCase().includes(props.name.toUpperCase())
-  );
-  return (
-    <SectionStyled>
-      <div>
-        {filter_products.map((product) => (
-          <Restaurant {...product} key={product.id} />
-        ))}
-        {filter_products.length === 0 && <h2>Not Found</h2>}
-      </div>
-    </SectionStyled>
-  );
-};
+    const filter_products = DUMMY_RESTAURANT.filter((item) =>
+        item.title.toUpperCase().includes(props.name.toUpperCase())
+    )
+    return (
+        <SectionStyled>
+            <div>
+                {filter_products.map((product) => (
+                    <Restaurant {...product} key={product.id} />
+                ))}
+                {filter_products.length === 0 && <h2>Not Found</h2>}
+            </div>
+        </SectionStyled>
+    )
+}
 
-export default RestaurantList;
+export default RestaurantList

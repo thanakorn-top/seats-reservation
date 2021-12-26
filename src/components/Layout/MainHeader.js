@@ -1,9 +1,8 @@
-// import CartButton from '../Cart/CartButton';
-import SearchBar from "../Restaurant/SearchBar";
-import { useDispatch, useSelector } from "react-redux";
-import Styled from "styled-components";
-import { uiAction } from "../../store/ui-slice";
-import { useState } from "react";
+import SearchBar from "../Restaurant/SearchBar"
+import { useDispatch, useSelector } from "react-redux"
+import Styled from "styled-components"
+import { uiAction } from "../../store/ui-slice"
+
 const HeaderStyled = Styled.header`
   width: 100%;
   height: 5rem;
@@ -25,47 +24,30 @@ ul {
 
 li {
   float: right;
-}`;
+}`
 
 const MainHeader = (props) => {
-  const dispatch = useDispatch();
-  const reservation = useSelector((state) => state.reservation);
-  const reserveListIsVisible = useSelector((state) => state.ui.reserveListIsVisible);
-  const toggleText = useSelector((state) => state.ui.toggleText);
-  // const [toggleText,setToggleText] = useState("Show Reserve List")
-  console.log("main header", reservation);
-  const toggleReservationList = () => {
-    dispatch(uiAction.toggleReserveListIsVisible());
-  };
-  const searchHandler = (name) => {
-    props.onSearch(name);
-  };
-// let toggleText= "";
-//   if(reserveListIsVisible){
-//     toggleText = "Show Restaurant";
-//   }else{
-//     toggleText = "Show Reserve List";
-//   }
-  return (
-    <HeaderStyled>
-      <h1>Reserve App</h1>
-      {!reserveListIsVisible && <SearchBar onSearch={searchHandler} />}
-      <button onClick={toggleReservationList}>{toggleText}</button>
-      {/* <nav>
-        <ul>
-         
-   
-          <li>
-            <button onClick={toggleReservationList}>Toggle</button>
-          </li>
-          <li>
-            <SearchBar onSearch={searchHandler} />
-           
-          </li>
-        </ul>
-      </nav> */}
-    </HeaderStyled>
-  );
-};
+    const dispatch = useDispatch()
 
-export default MainHeader;
+    const reserveListIsVisible = useSelector(
+        (state) => state.ui.reserveListIsVisible
+    )
+    const toggleText = useSelector((state) => state.ui.toggleText)
+
+    const toggleReservationList = () => {
+        dispatch(uiAction.toggleReserveListIsVisible())
+    }
+    const searchHandler = (name) => {
+        props.onSearch(name)
+    }
+
+    return (
+        <HeaderStyled>
+            <h1 className="d-none d-lg-block">Reserve App</h1>
+            {!reserveListIsVisible && <SearchBar onSearch={searchHandler} />}
+            <button onClick={toggleReservationList}>{toggleText}</button>
+        </HeaderStyled>
+    )
+}
+
+export default MainHeader
