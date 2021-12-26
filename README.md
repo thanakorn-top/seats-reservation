@@ -2,13 +2,13 @@
 
 # Introduction
 
-This web application can reserve 4 Restaurant
+This web application can reserve 4 Restaurant.
 
 # Feature
-- Can reserve any date and time from 4 Restaurant
-- Can search by name
-- Seats Have a limit
-- Can check reserve list
+- Can reserve any date and time from 4 Restaurant.
+- Can search by name.
+- Seats have a limit.
+- Can check reserve list.
 
 ![image](https://imgur.com/C3bTfGC.jpg)
 ![image](https://imgur.com/mxTiivE.jpg)
