@@ -32,7 +32,7 @@ justify-content: flex-end;
 `;
 
 const Restaurant = (props) => {
-  const { title, description, id, img } = props;
+  const { title, description, id, img,img2,img3 } = props;
   const dispatch = useDispatch();
 
   // const addToCartHandler = () => {
@@ -48,8 +48,8 @@ const Restaurant = (props) => {
       <Card>
         <header>
           <img src={img} alt="img"></img>
-          <img src={img} alt="img"></img>
-          <img src={img} alt="img"></img>
+          <img src={img2} alt="img"></img>
+          <img src={img3} alt="img"></img>
         
           {/* <div className={classes.price}>${price.toFixed(2)}</div> */}
         </header>
@@ -59,7 +59,7 @@ const Restaurant = (props) => {
             <p>{description}</p>
           </DivDescStyled>
           <DivActionsStyled >
-            <button onClick={reservation}>Add to Cart</button>
+            <button onClick={reservation}>Reserve</button>
           </DivActionsStyled>
         </div>
       </Card>

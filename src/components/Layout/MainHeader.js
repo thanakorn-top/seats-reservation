@@ -48,7 +48,7 @@ const MainHeader = (props) => {
 //   }
   return (
     <HeaderStyled>
-      <h1>myK-store</h1>
+      <h1>Reserve App</h1>
       {!reserveListIsVisible && <SearchBar onSearch={searchHandler} />}
       <button onClick={toggleReservationList}>{toggleText}</button>
       {/* <nav>

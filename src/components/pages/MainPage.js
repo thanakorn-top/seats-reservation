@@ -5,7 +5,7 @@ import RestaurantList from "../Restaurant/RestaurantList";
 import { useSelector, useDispatch } from "react-redux";
 import { Fragment, useEffect, useState } from "react";
 import Notification from "../UI/Notification";
-import { sendCartData, fetchCartData } from "../../store/reservation-actions";
+import { sendReserveData, fetchReserveData } from "../../store/reservation-actions";
 import ReserveList from "../Reservation/ReserveList";
 let isInitial = true;
 
@@ -20,7 +20,7 @@ const MainPage = () => {
   const [restName, setRestName] = useState("");
 
   useEffect(() => {
-    dispatch(fetchCartData());
+    dispatch(fetchReserveData());
   }, [dispatch]);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const MainPage = () => {
       return;
     }
     if (reservation.changed) {
-      dispatch(sendCartData(reservation.reserveList));
+      dispatch(sendReserveData(reservation.reserveList));
     }
   }, [reservation, dispatch]);
 

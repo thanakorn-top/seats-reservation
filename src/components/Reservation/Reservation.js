@@ -28,18 +28,14 @@ const Reservation = (props) => {
   // const cartItems = useSelector((state) => state.reservation.items);
   const reserveResteraunt = useSelector((state) => state.reservation.reserve);
   const dispatch = useDispatch();
-  const cartTotal = useSelector((state) => state.reservation.totalQuantity);
-  const clearCartHanler = () => {
-    dispatch(reservActions.clearItemFromCart({}));
-    cartToggle();
-  };
 
-  const cartToggle = () => {
+
+  const reserveToggle = () => {
     dispatch(uiAction.toggleReservationFormVisible());
   };
 
   return (
-    <Modal onClose={cartToggle}>
+    <Modal onClose={reserveToggle}>
       <CardStyle>
       {/* <Card> */}
         <h2>Your Reservation </h2>
@@ -57,10 +53,6 @@ const Reservation = (props) => {
           />
           {/* ))} */}
         </ul>
-        {/* <div className={classes.actions}> */}
-        <div>
-          {cartTotal !== 0 && <button onClick={clearCartHanler}>Clear</button>}
-        </div>
       </CardStyle>
     </Modal>
   );
